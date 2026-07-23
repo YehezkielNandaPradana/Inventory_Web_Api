@@ -1,0 +1,51 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+.docker
+
+# PHP dependencies
+vendor
+composer.lock
+
+# Node dependencies
+node_modules
+package-lock.json
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.docker
+auth.json
+
+# IDE & editors
+.idea
+.vscode
+.phpactor.json
+_ide_helper.php
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Laravel runtime
+storage/*.key
+storage/pail
+public/storage
+public/hot
+public/build
+public/fonts-manifest.dev.json
+
+# Test artifacts
+phpunit.result.cache
+.phpunit.cache
+
+# Documentation
+*.md
+docs/
