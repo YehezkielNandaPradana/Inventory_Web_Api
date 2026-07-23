@@ -1,58 +1,205 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Stokku — Inventory Management System
 
-## About Laravel
+[![Laravel](https://img.shields.io/badge/Laravel-13.x-red?logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)](https://php.net)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Pest](https://img.shields.io/badge/Pest-4-CB3F3F?logo=pest&logoColor=white)](https://pestphp.com)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A comprehensive inventory management system with **REST API** backend for mobile apps and a **web admin dashboard**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Stokku is a dual-interface inventory management application built with Laravel 13. It provides a **JSON REST API** for Flutter (or any mobile/client app) and a **Blade + Tailwind CSS** web dashboard for administrators.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Core Features (Implemented)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Barang (Items)** — Full CRUD with stock tracking, minimum stock alerts, soft deletes, and image upload
+- **Kategori (Categories)** — Organize items by category with per-category stock status breakdown
+- **Stok Movement** — Record stock-in (`masuk`) and stock-out (`keluar`) transactions with automatic quantity updates
+- **Stock Status** — Automatic status calculation: *Aman* (Safe), *Menipis* (Low), *Habis* (Empty)
+- **Dashboard** — Real-time overview with total items, categories, stock value, and low-stock warnings
+- **REST API** — 17 endpoints covering all core CRUD and stock history operations
+- **Web Admin** — Session-based dashboard with full CRUD management
 
-## Agentic Development
+### Planned Features (Scaffolded)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+The following modules have been scaffolded with models, migrations, controllers, views, and tests ready for implementation:
+
+| Module | Description |
+|--------|-------------|
+| Barang Masuk | Incoming goods receipt |
+| Barang Keluar | Outgoing goods dispatch |
+| Barang Rusak | Damaged goods / write-off |
+| Peminjaman & Pengembalian | Item borrowing and return |
+| Supplier & Merk | Vendor and brand management |
+| Lokasi | Warehouse/storage locations (building, room, rack) |
+| Purchase Request & Order | Procurement lifecycle |
+| Invoice | Billing and invoicing |
+| Stock Opname | Physical stock counting |
+| Maintenance | Equipment maintenance scheduling |
+| Notifikasi | In-app notifications |
+| Role & Permission | Role-based access control |
+| Audit Log | Activity trail |
+| User Management | User account management |
+| Laporan | Reporting and analytics |
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Laravel 13.x |
+| **Language** | PHP 8.3 |
+| **Database** | MySQL / SQLite |
+| **Frontend** | Blade + Tailwind CSS 4 + Vite 8 |
+| **API** | REST JSON (Session-based auth) |
+| **Testing** | Pest PHP 4 |
+| **Dev Tools** | Laravel Pint, Laravel Pail, Laravel Boost |
+
+## Getting Started
+
+### Prerequisites
+
+- PHP ^8.3
+- Composer
+- Node.js & NPM
+- MySQL or SQLite
+
+### Installation
 
 ```bash
-composer require laravel/boost --dev
+# Clone the repository
+git clone https://github.com/your-username/inventory_api.git
+cd inventory_api
 
-php artisan boost:install
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install
+
+# Environment setup
+cp .env.example .env
+php artisan key:generate
+
+# Configure database in .env, then run:
+php artisan migrate --seed
+
+# Build frontend assets
+npm run build
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Development Server
 
-## Contributing
+```bash
+# Start all services (server, queue, logs, Vite) concurrently
+composer run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Testing
 
-## Code of Conduct
+```bash
+composer test
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## API Endpoints
 
-## Security Vulnerabilities
+All API endpoints are prefixed with `/api/`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/login` | Authenticate via username/password |
+
+### Kategori (Categories)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/kategoris` | List all categories |
+| POST | `/api/kategoris` | Create a category |
+| GET | `/api/kategoris/{id}` | Show category with its items |
+| PUT | `/api/kategoris/{id}` | Update a category |
+| DELETE | `/api/kategoris/{id}` | Delete a category |
+
+### Barang (Items)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/barangs` | List all items (includes kategori) |
+| POST | `/api/barangs` | Create an item |
+| GET | `/api/barangs/{id}` | Show item with kategori and stock movements |
+| PUT | `/api/barangs/{id}` | Update an item |
+| DELETE | `/api/barangs/{id}` | Delete an item (soft delete) |
+| GET | `/api/barangs/{id}/history` | Get stock movement history for an item |
+
+### Stok Movement (Stock Transactions)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/stok-movements` | List all stock movements |
+| POST | `/api/stok-movements` | Record a stock movement (auto-updates stock) |
+| GET | `/api/stok-movements/{id}` | Show a movement |
+| PATCH | `/api/stok-movements/{id}` | Update a movement |
+| DELETE | `/api/stok-movements/{id}` | Delete a movement |
+
+### Health
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+
+## Database Schema
+
+### Core Tables
+
+| Table | Description |
+|-------|-------------|
+| `users` | User accounts with username, email, and role |
+| `kategoris` | Item categories |
+| `barangs` | Items/products with stock tracking and soft deletes |
+| `stok_movements` | Stock transaction log (tipe: `masuk`/`keluar`) |
+
+### Key Behaviors
+
+- **Stock auto-update** — Creating a `masuk` movement increments item stock; `keluar` decrements it
+- **Status calculation** — `stok === 0` → *Habis*, `stok <= stok_minimum` → *Menipis*, otherwise *Aman*
+- **Cascade deletes** — Deleting a kategori removes its items; deleting an item removes related movements
+- **Soft deletes** — Items are soft-deleted; stock movements use hard deletes
+
+## Project Structure
+
+```
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Api/          # JSON API controllers
+│   │   │   └── Web/          # Web dashboard controllers
+│   │   └── Requests/         # Form request validation
+│   ├── Models/               # Eloquent models
+│   ├── Services/             # Business logic layer
+│   ├── Policies/             # Authorization policies
+│   └── Enums/                # Enum classes
+├── database/
+│   ├── factories/            # Model factories
+│   ├── migrations/           # Database migrations
+│   └── seeders/              # Database seeders
+├── resources/
+│   └── views/                # Blade templates
+├── routes/
+│   ├── api.php               # API routes
+│   └── web.php               # Web routes
+└── tests/
+    ├── Feature/              # Feature tests
+    └── Unit/                 # Unit tests
+```
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced under the MIT license.
