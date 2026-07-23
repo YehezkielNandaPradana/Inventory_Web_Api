@@ -6,7 +6,7 @@ RUN set -ex \
         libpng-dev \
         libjpeg-turbo-dev \
         libwebp-dev \
-        libfreetype6-dev \
+        freetype-dev \
         libzip-dev \
         libxslt-dev \
         icu-dev \
