@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Models\Barang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController
 {
@@ -29,15 +30,29 @@ class BarangController
             'kategori_id' => ['required', 'exists:kategoris,id'],
             'stok' => ['required', 'integer', 'min:0'],
             'stok_minimum' => ['required', 'integer', 'min:0'],
-            'gambar' => ['nullable', 'string', 'max:500'],
+            'gambar_url' => ['nullable', 'string', 'max:500'],
+            'gambar_file' => ['nullable', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048'],
         ]);
 
         try {
-            Barang::create($validated);
+            $data = [
+                'nama' => $validated['nama'],
+                'kategori_id' => $validated['kategori_id'],
+                'stok' => $validated['stok'],
+                'stok_minimum' => $validated['stok_minimum'],
+            ];
 
-            return redirect()->route('barangs.index')->with('success', 'Barang berhasil ditambahkan.');
+            if ($request->hasFile('gambar_file')) {
+                $data['gambar'] = $request->file('gambar_file')->store('barang', 'public');
+            } elseif ($request->filled('gambar_url')) {
+                $data['gambar'] = $validated['gambar_url'];
+            }
+
+            Barang::create($data);
+
+            return redirect()->route('web.barangs.index')->with('success', 'Barang berhasil ditambahkan.');
         } catch (\Exception $e) {
-            return redirect()->route('barangs.index')->with('error', 'Gagal menambahkan barang. Silakan coba lagi.');
+            return redirect()->route('web.barangs.index')->with('error', 'Gagal menambahkan barang. Silakan coba lagi.');
         }
     }
 
@@ -48,26 +63,50 @@ class BarangController
             'kategori_id' => ['required', 'exists:kategoris,id'],
             'stok' => ['required', 'integer', 'min:0'],
             'stok_minimum' => ['required', 'integer', 'min:0'],
-            'gambar' => ['nullable', 'string', 'max:500'],
+            'gambar_url' => ['nullable', 'string', 'max:500'],
+            'gambar_file' => ['nullable', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048'],
         ]);
 
         try {
-            $barang->update($validated);
+            $data = [
+                'nama' => $validated['nama'],
+                'kategori_id' => $validated['kategori_id'],
+                'stok' => $validated['stok'],
+                'stok_minimum' => $validated['stok_minimum'],
+            ];
 
-            return redirect()->route('barangs.index')->with('success', 'Barang berhasil diperbarui.');
+            if ($request->hasFile('gambar_file')) {
+                if ($barang->gambar && ! str_starts_with($barang->gambar, 'http')) {
+                    Storage::disk('public')->delete($barang->gambar);
+                }
+                $data['gambar'] = $request->file('gambar_file')->store('barang', 'public');
+            } elseif ($request->filled('gambar_url')) {
+                if ($barang->gambar && ! str_starts_with($barang->gambar, 'http')) {
+                    Storage::disk('public')->delete($barang->gambar);
+                }
+                $data['gambar'] = $validated['gambar_url'];
+            }
+
+            $barang->update($data);
+
+            return redirect()->route('web.barangs.index')->with('success', 'Barang berhasil diperbarui.');
         } catch (\Exception $e) {
-            return redirect()->route('barangs.index')->with('error', 'Gagal memperbarui barang. Silakan coba lagi.');
+            return redirect()->route('web.barangs.index')->with('error', 'Gagal memperbarui barang. Silakan coba lagi.');
         }
     }
 
     public function destroy(Barang $barang)
     {
         try {
+            if ($barang->gambar && ! str_starts_with($barang->gambar, 'http')) {
+                Storage::disk('public')->delete($barang->gambar);
+            }
+
             $barang->delete();
 
-            return redirect()->route('barangs.index')->with('success', 'Barang berhasil dihapus.');
+            return redirect()->route('web.barangs.index')->with('success', 'Barang berhasil dihapus.');
         } catch (\Exception $e) {
-            return redirect()->route('barangs.index')->with('error', 'Gagal menghapus barang. Barang masih memiliki data terkait.');
+            return redirect()->route('web.barangs.index')->with('error', 'Gagal menghapus barang. Barang masih memiliki data terkait.');
         }
     }
 }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', DashboardController::class)->name('dashboard');
 
-Route::resource('kategoris', KategoriController::class)->only(['index', 'store', 'update', 'destroy']);
-Route::resource('barangs', BarangController::class)->only(['index', 'store', 'update', 'destroy']);
-Route::resource('stok-movements', StokMovementController::class)->only(['index', 'store', 'destroy']);
+Route::name('web.')->group(function () {
+    Route::resource('kategoris', KategoriController::class)->only(['index', 'store', 'update', 'destroy']);
+    Route::resource('barangs', BarangController::class)->only(['index', 'store', 'update', 'destroy']);
+    Route::resource('stok-movements', StokMovementController::class)->only(['index', 'store', 'destroy']);
+});
