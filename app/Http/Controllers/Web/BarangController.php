@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Barang;
+use App\Models\Gudang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -11,8 +12,9 @@ class BarangController
 {
     public function index()
     {
-        $barangs = Barang::with('kategori')->latest()->get();
+        $barangs = Barang::with('kategori', 'gudang')->latest()->get();
         $kategoris = Kategori::all();
+        $gudangs = Gudang::all();
 
         $total_barang = Barang::count();
         $stok_menipis = Barang::whereColumn('stok', '<=', 'stok_minimum')->count();
@@ -20,26 +22,32 @@ class BarangController
         $stok_aman = $total_barang - $stok_menipis;
         $stok_menipis_aktif = $stok_menipis - $stok_habis;
 
-        return view('barangs.index', compact('barangs', 'kategoris', 'total_barang', 'stok_aman', 'stok_menipis_aktif', 'stok_habis'));
+        return view('barangs.index', compact('barangs', 'kategoris', 'gudangs', 'total_barang', 'stok_aman', 'stok_menipis_aktif', 'stok_habis'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'kode_barang' => ['nullable', 'string', 'max:50', 'unique:barangs,kode_barang'],
             'nama' => ['required', 'string', 'max:255'],
             'kategori_id' => ['required', 'exists:kategoris,id'],
+            'gudang_id' => ['nullable', 'exists:gudangs,id'],
             'stok' => ['required', 'integer', 'min:0'],
             'stok_minimum' => ['required', 'integer', 'min:0'],
+            'kondisi' => ['nullable', 'string', 'in:baik,rusak,perbaikan'],
             'gambar_url' => ['nullable', 'string', 'max:500'],
             'gambar_file' => ['nullable', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048'],
         ]);
 
         try {
             $data = [
+                'kode_barang' => $validated['kode_barang'] ?? null,
                 'nama' => $validated['nama'],
                 'kategori_id' => $validated['kategori_id'],
+                'gudang_id' => $validated['gudang_id'] ?? null,
                 'stok' => $validated['stok'],
                 'stok_minimum' => $validated['stok_minimum'],
+                'kondisi' => $validated['kondisi'] ?? 'baik',
             ];
 
             if ($request->hasFile('gambar_file')) {
@@ -59,20 +67,26 @@ class BarangController
     public function update(Request $request, Barang $barang)
     {
         $validated = $request->validate([
+            'kode_barang' => ['nullable', 'string', 'max:50', 'unique:barangs,kode_barang,'.$barang->id],
             'nama' => ['required', 'string', 'max:255'],
             'kategori_id' => ['required', 'exists:kategoris,id'],
+            'gudang_id' => ['nullable', 'exists:gudangs,id'],
             'stok' => ['required', 'integer', 'min:0'],
             'stok_minimum' => ['required', 'integer', 'min:0'],
+            'kondisi' => ['nullable', 'string', 'in:baik,rusak,perbaikan'],
             'gambar_url' => ['nullable', 'string', 'max:500'],
             'gambar_file' => ['nullable', 'image', 'mimes:jpeg,png,webp,gif', 'max:2048'],
         ]);
 
         try {
             $data = [
+                'kode_barang' => $validated['kode_barang'] ?? null,
                 'nama' => $validated['nama'],
                 'kategori_id' => $validated['kategori_id'],
+                'gudang_id' => $validated['gudang_id'] ?? null,
                 'stok' => $validated['stok'],
                 'stok_minimum' => $validated['stok_minimum'],
+                'kondisi' => $validated['kondisi'] ?? 'baik',
             ];
 
             if ($request->hasFile('gambar_file')) {
