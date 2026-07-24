@@ -13,6 +13,9 @@ class KategoriSeeder extends Seeder
             'Alat Tulis',
             'Perlengkapan Kantor',
             'Perlengkapan Sekolah',
+            'Peralatan Elektronik',
+            'Perabotan Kantor',
+            'Bahan Habis Pakai',
         ];
 
         foreach ($kategoris as $nama) {
