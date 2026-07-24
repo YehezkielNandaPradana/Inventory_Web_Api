@@ -25,54 +25,43 @@
         </nav>
     </div>
 
-    <!-- Quick Access Menu (Pengganti Stat Cards) -->
+    <!-- Quick Access Menu -->
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-        <!-- Menu: Kategori -->
-        <a href="/kategoris" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
+        <a href="/gudang" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="text-xs font-semibold text-navy-text">Gudang</span>
+        </a>
+        <a href="/kategoris" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
             <div class="w-10 h-10 rounded-xl bg-light-blue-bg flex items-center justify-center text-primary-blue group-hover:bg-primary-blue group-hover:text-white transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
             </div>
             <span class="text-xs font-semibold text-navy-text">Kategori</span>
         </a>
-        
-        <!-- Menu: Riwayat Stok -->
-        <a href="/stok-movements" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
-            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-success-green group-hover:bg-success-green group-hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+        <a href="/serah-terima" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
             </div>
-            <span class="text-xs font-semibold text-navy-text">Riwayat Stok</span>
+            <span class="text-xs font-semibold text-navy-text">Serah Terima</span>
         </a>
-
-        <!-- Menu: Peminjaman -->
-        <a href="/peminjaman" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
-            <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-warning-amber group-hover:bg-warning-amber group-hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <a href="/kondisi-item" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86l-8.6 14.86A2 2 0 003.4 21h17.2a2 2 0 001.71-2.86l-8.6-14.86a2 2 0 00-3.42 0z"/></svg>
             </div>
-            <span class="text-xs font-semibold text-navy-text">Peminjaman</span>
+            <span class="text-xs font-semibold text-navy-text">Kondisi Item</span>
         </a>
-
-        <!-- Menu: Laporan -->
-        <a href="/laporan" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
-            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-danger-red group-hover:bg-danger-red group-hover:text-white transition-colors">
+        <a href="/rekap" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg>
+            </div>
+            <span class="text-xs font-semibold text-navy-text">Rekap Data</span>
+        </a>
+        <a href="/laporan" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-slate-700 group-hover:text-white transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
             <span class="text-xs font-semibold text-navy-text">Laporan</span>
-        </a>
-
-        <!-- Menu: Supplier -->
-        <a href="/supplier" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
-            <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4M4 10v10a1 1 0 001 1h14a1 1 0 001-1V10M9 21V12h6v9"/></svg>
-            </div>
-            <span class="text-xs font-semibold text-navy-text">Supplier</span>
-        </a>
-
-        <!-- Menu: Pengaturan -->
-        <a href="/settings" class="group bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgba(45,125,210,0.04)] flex flex-col items-center text-center space-y-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(45,125,210,0.1)]">
-            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 group-hover:bg-slate-800 group-hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <span class="text-xs font-semibold text-navy-text">Pengaturan</span>
         </a>
     </div>
 
@@ -154,6 +143,7 @@
                                     <th class="px-6 py-4 font-semibold">Kode</th>
                                     <th class="px-6 py-4 font-semibold">Nama Barang</th>
                                     <th class="px-6 py-4 font-semibold">Kategori</th>
+                                    <th class="px-6 py-4 font-semibold">Gudang</th>
                                     <th class="px-6 py-4 font-semibold text-center">Stok</th>
                                     <th class="px-6 py-4 font-semibold text-center">Kondisi</th>
                                     <th class="px-6 py-4 font-semibold text-center">Status</th>
@@ -178,15 +168,16 @@
                                         data-stok-minimum="{{ $barang->stok_minimum }}"
                                         data-status="{{ $barang->status }}"
                                         data-gambar="{{ $barang->gambar }}"
-                                        data-kode="{{ $barang->kode ?? 'PRD-' . str_pad($barang->id, 4, '0', STR_PAD_LEFT) }}"
-                                        data-lokasi="{{ $barang->lokasi ?? 'Gudang Utama' }}"
-                                        data-kondisi="{{ $barang->kondisi ?? 'Baik' }}"
+                                        data-kode="{{ $barang->kode_barang ?? 'BRG-' . str_pad($barang->id, 4, '0', STR_PAD_LEFT) }}"
+                                        data-gudang="{{ $barang->gudang?->nama ?? '-' }}"
+                                        data-gudang-id="{{ $barang->gudang_id ?? '' }}"
+                                        data-kondisi="{{ $barang->kondisi ?? 'baik' }}"
                                         data-updated="{{ $barang->updated_at ? $barang->updated_at->diffForHumans() : 'Baru saja' }}"
                                         class="barang-row cursor-pointer transition-colors hover:bg-slate-50 opacity-0 animate-fade-in-up" 
                                         style="animation-delay: {{ min($index * 0.04, 0.24) }}s;">
                                         
                                         <td class="px-6 py-4 text-[11px] text-slate-400 font-mono whitespace-nowrap">
-                                            {{ $barang->kode ?? 'PRD-' . str_pad($barang->id, 4, '0', STR_PAD_LEFT) }}
+                                            {{ $barang->kode_barang ?? 'BRG-' . str_pad($barang->id, 4, '0', STR_PAD_LEFT) }}
                                         </td>
                                         <td class="px-6 py-4 text-sm font-poppins font-semibold text-navy-text">
                                             {{ $barang->nama }}
@@ -194,6 +185,11 @@
                                         <td class="px-6 py-4">
                                             <span class="text-[10px] font-semibold text-primary-blue uppercase tracking-wider bg-light-blue-bg inline-block px-2 py-0.5 rounded">
                                                 {{ $barang->kategori->nama ?? '-' }}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span class="text-[10px] font-medium text-slate-text">
+                                                {{ $barang->gudang?->nama ?? '-' }}
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 text-center">
@@ -265,6 +261,10 @@
         <form action="/barangs" method="POST" enctype="multipart/form-data" class="p-5 space-y-4">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="add_kode_barang" class="block text-xs font-semibold text-slate-text mb-1.5">Kode Barang</label>
+                    <input type="text" name="kode_barang" id="add_kode_barang" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all" placeholder="Contoh: BRG-001">
+                </div>
                 <div class="md:col-span-2">
                     <label for="add_nama" class="block text-xs font-semibold text-slate-text mb-1.5">Nama Barang <span class="text-danger-red">*</span></label>
                     <input type="text" name="nama" id="add_nama" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all" placeholder="Contoh: Proyektor Epson">
@@ -279,8 +279,13 @@
                     </select>
                 </div>
                 <div>
-                    <label for="add_lokasi" class="block text-xs font-semibold text-slate-text mb-1.5">Lokasi Penyimpanan</label>
-                    <input type="text" name="lokasi" id="add_lokasi" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all" placeholder="Contoh: Gudang A / Ruang Guru">
+                    <label for="add_gudang_id" class="block text-xs font-semibold text-slate-text mb-1.5">Gudang</label>
+                    <select name="gudang_id" id="add_gudang_id" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
+                        <option value="">Pilih Gudang</option>
+                        @foreach($gudangs as $gudang)
+                            <option value="{{ $gudang->id }}">{{ $gudang->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <label for="add_stok" class="block text-xs font-semibold text-slate-text mb-1.5">Stok Awal <span class="text-danger-red">*</span></label>
@@ -293,9 +298,9 @@
                 <div>
                     <label for="add_kondisi" class="block text-xs font-semibold text-slate-text mb-1.5">Kondisi Barang</label>
                     <select name="kondisi" id="add_kondisi" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
-                        <option value="Baik">Baik</option>
-                        <option value="Rusak Ringan">Rusak Ringan</option>
-                        <option value="Rusak Berat">Rusak Berat</option>
+                        <option value="baik">Baik</option>
+                        <option value="rusak">Rusak</option>
+                        <option value="perbaikan">Perbaikan</option>
                     </select>
                 </div>
                 <div class="md:col-span-2">
@@ -349,6 +354,10 @@
             @csrf
             @method('PUT')
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="edit_kode_barang" class="block text-xs font-semibold text-slate-text mb-1.5">Kode Barang</label>
+                    <input type="text" name="kode_barang" id="edit_kode_barang" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
+                </div>
                 <div class="md:col-span-2">
                     <label for="edit_nama" class="block text-xs font-semibold text-slate-text mb-1.5">Nama Barang <span class="text-danger-red">*</span></label>
                     <input type="text" name="nama" id="edit_nama" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
@@ -363,8 +372,13 @@
                     </select>
                 </div>
                 <div>
-                    <label for="edit_lokasi" class="block text-xs font-semibold text-slate-text mb-1.5">Lokasi Penyimpanan</label>
-                    <input type="text" name="lokasi" id="edit_lokasi" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
+                    <label for="edit_gudang_id" class="block text-xs font-semibold text-slate-text mb-1.5">Gudang</label>
+                    <select name="gudang_id" id="edit_gudang_id" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
+                        <option value="">Pilih Gudang</option>
+                        @foreach($gudangs as $gudang)
+                            <option value="{{ $gudang->id }}">{{ $gudang->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <label for="edit_stok" class="block text-xs font-semibold text-slate-text mb-1.5">Stok <span class="text-danger-red">*</span></label>
@@ -377,9 +391,9 @@
                 <div>
                     <label for="edit_kondisi" class="block text-xs font-semibold text-slate-text mb-1.5">Kondisi Barang</label>
                     <select name="kondisi" id="edit_kondisi" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-1.5 focus:ring-primary-blue focus:bg-white transition-all">
-                        <option value="Baik">Baik</option>
-                        <option value="Rusak Ringan">Rusak Ringan</option>
-                        <option value="Rusak Berat">Rusak Berat</option>
+                        <option value="baik">Baik</option>
+                        <option value="rusak">Rusak</option>
+                        <option value="perbaikan">Perbaikan</option>
                     </select>
                 </div>
                 <div class="md:col-span-2">
@@ -445,7 +459,7 @@
 
         let activeId = null;
 
-        function renderDetailContent(id, name, category, stok, stokMin, status, gambar, kategoriId, kode, lokasi, kondisi, updated) {
+        function renderDetailContent(id, name, category, stok, stokMin, status, gambar, kategoriId, kode, gudang, kondisi, updated, gudangId) {
             const maxVal = Math.max(stokMin * 2, 10, stok);
             const percentage = maxVal > 0 ? (stok / maxVal) * 100 : 0;
 
@@ -463,10 +477,12 @@
             }
 
             let kondisiBadge = '';
-            if(kondisi === 'Baik') {
-                kondisiBadge = `<span class="text-[10px] bg-emerald-50 text-success-green px-2 py-0.5 rounded border border-emerald-100">${kondisi}</span>`;
+            if(kondisi === 'baik' || kondisi === 'Baik') {
+                kondisiBadge = `<span class="text-[10px] bg-emerald-50 text-success-green px-2 py-0.5 rounded border border-emerald-100">Baik</span>`;
+            } else if(kondisi === 'perbaikan') {
+                kondisiBadge = `<span class="text-[10px] bg-amber-50 text-amber-600 px-2 py-0.5 rounded border border-amber-100">Perbaikan</span>`;
             } else {
-                kondisiBadge = `<span class="text-[10px] bg-rose-50 text-danger-red px-2 py-0.5 rounded border border-rose-100">${kondisi}</span>`;
+                kondisiBadge = `<span class="text-[10px] bg-rose-50 text-danger-red px-2 py-0.5 rounded border border-rose-100">Rusak</span>`;
             }
 
             const imgSrc = gambar ? (gambar.startsWith('http') ? gambar : '/storage/' + gambar) : '';
@@ -500,10 +516,10 @@
                     <div class="grid grid-cols-2 gap-2 text-xs">
                         <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                             <p class="text-slate-400 text-[10px] mb-0.5 flex items-center gap-1">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="2.5"/></svg>
-                                Lokasi
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                Gudang
                             </p>
-                            <p class="font-semibold text-navy-text">${lokasi}</p>
+                            <p class="font-semibold text-navy-text">${gudang}</p>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                             <p class="text-slate-400 text-[10px] mb-0.5 flex items-center gap-1">
@@ -531,33 +547,8 @@
 
                     <!-- Actions -->
                     <div class="space-y-2">
-                        <div class="grid grid-cols-2 gap-3">
-                            <form action="/stok-movements" method="POST">
-                                <input type="hidden" name="_token" value="${csrfToken}">
-                                <input type="hidden" name="barang_id" value="${id}">
-                                <input type="hidden" name="tipe" value="masuk">
-                                <input type="hidden" name="jumlah" value="1">
-                                <input type="hidden" name="keterangan" value="Penambahan cepat via panel detail">
-                                <button type="submit" class="w-full bg-emerald-50 text-success-green hover:bg-emerald-100 py-2.5 px-4 rounded-xl text-[11px] font-semibold transition-colors flex items-center justify-center space-x-1.5">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                    <span>Tambah Stok</span>
-                                </button>
-                            </form>
-                            <form action="/stok-movements" method="POST">
-                                <input type="hidden" name="_token" value="${csrfToken}">
-                                <input type="hidden" name="barang_id" value="${id}">
-                                <input type="hidden" name="tipe" value="keluar">
-                                <input type="hidden" name="jumlah" value="1">
-                                <input type="hidden" name="keterangan" value="Pengurangan cepat via panel detail">
-                                <button type="submit" ${stok <= 0 ? 'disabled' : ''} class="w-full bg-rose-50 text-danger-red hover:bg-rose-100 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed py-2.5 px-4 rounded-xl text-[11px] font-semibold transition-colors flex items-center justify-center space-x-1.5">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                    <span>Kurangi Stok</span>
-                                </button>
-                            </form>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-3">
-                            <button type="button" onclick='openEditModal(${JSON.stringify({id, name, kategoriId, stok, stokMin, gambar, lokasi, kondisi})})' class="flex items-center justify-center space-x-1.5 border border-slate-200 hover:bg-slate-50 text-navy-text py-2.5 px-4 rounded-xl text-[11px] font-semibold transition-colors">
+                        <div class="grid grid-cols-1 gap-3">
+                            <button type="button" onclick='openEditModal(${JSON.stringify({id, name, kategoriId, stok, stokMin, gambar, gudang_id: gudangId || "", kode_barang: kode || "", kondisi})})' class="flex items-center justify-center space-x-1.5 border border-slate-200 hover:bg-slate-50 text-navy-text py-2.5 px-4 rounded-xl text-[11px] font-semibold transition-colors">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
                                 <span>Edit Info</span>
                             </button>
@@ -615,11 +606,12 @@
             const gambar = row.dataset.gambar;
             const kategoriId = row.dataset.kategoriId;
             const kode = row.dataset.kode;
-            const lokasi = row.dataset.lokasi;
+            const gudang = row.dataset.gudang;
+            const gudangId = row.dataset.gudangId;
             const kondisi = row.dataset.kondisi;
             const updated = row.dataset.updated;
             
-            const htmlContent = renderDetailContent(id, name, category, stok, stokMin, status, gambar, kategoriId, kode, lokasi, kondisi, updated);
+            const htmlContent = renderDetailContent(id, name, category, stok, stokMin, status, gambar, kategoriId, kode, gudang, kondisi, updated, gudangId);
 
             if (desktopContent) desktopContent.innerHTML = htmlContent;
             if (bottomSheetContent) bottomSheetContent.innerHTML = htmlContent;
@@ -741,16 +733,17 @@
             const modalContent = document.getElementById('editBarangModalContent');
 
             document.getElementById('editBarangForm').action = `/barangs/${data.id}`;
+            document.getElementById('edit_kode_barang').value = data.kode_barang || '';
             document.getElementById('edit_nama').value = data.name;
             document.getElementById('edit_kategori_id').value = data.kategoriId;
+            document.getElementById('edit_gudang_id').value = data.gudang_id || '';
             document.getElementById('edit_stok').value = data.stok;
             document.getElementById('edit_stok_minimum').value = data.stokMin;
             document.getElementById('edit_gambar_url').value = data.gambar || '';
             if (data.gambar && !data.gambar.startsWith('blob:')) {
                 document.getElementById('editGambarUrlTab').click();
             }
-            document.getElementById('edit_lokasi').value = data.lokasi || '';
-            document.getElementById('edit_kondisi').value = data.kondisi || 'Baik';
+            document.getElementById('edit_kondisi').value = data.kondisi || 'baik';
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -867,7 +860,7 @@
         // ==========================================
         window.exportToCSV = function() {
             let csv = [];
-            csv.push(["Kode", "Nama Barang", "Kategori", "Stok", "Stok Minimum", "Status", "Kondisi", "Lokasi"].join(","));
+            csv.push(["Kode", "Nama Barang", "Kategori", "Gudang", "Stok", "Stok Minimum", "Status", "Kondisi"].join(","));
             
             rows.forEach(row => {
                 if (row.style.display !== 'none') {
