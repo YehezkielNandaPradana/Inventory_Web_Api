@@ -1,8 +1,11 @@
 FROM php:8.3-fpm-alpine
 
-# Install system dependencies and build tools
+# Install kernel headers dari edge repository
 RUN set -ex \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+    && apk update \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+        linux-headers \
         libpng-dev \
         libjpeg-turbo-dev \
         libwebp-dev \
